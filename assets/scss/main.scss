@@ -46,30 +46,47 @@ header {
 }
 
 .hero {
-    height: 100vh;
     display: flex;
     width: 100%;
     position: relative;
+    height: 100%;
+    padding-top: 80px;
+    @media (min-width: 768px) {
+        padding-bottom: 2rem;
+    }
+    @media (min-width: 992px) {
+        height: 100vh;
+        padding-top: unset;
+    }
     & .wave {
-        height: 80px;
         width: 100%;
         background: #f3f3f3;
         position: absolute;
         top: 0;
         z-index: -1;
+        height: 64px;
+        @media (min-width: 1400px) {
+            height: 80px;
+        }
         &_one {
             transform: rotate(180deg);
             width: 100%;
             position: absolute;
-            top: 80px;
             opacity: 0.3;
+            top: 64px;
+            @media (min-width: 1400px) {
+                top: 80px;
+            }
         }
         &_two {
             transform: rotate(180deg);
             width: 100%;
             position: absolute;
-            top: 80px;
             opacity: 0.3;
+            top: 64px;
+            @media (min-width: 1400px) {
+                top: 80px;
+            }
         }
     }
     & .container {
@@ -91,7 +108,7 @@ header {
             font-weight: 600;
             margin-bottom: 0.5rem;
             text-align: center;
-            @media (min-width: 992px) {
+            @media (min-width: 768px) {
                 text-align: left;
             }
         }
@@ -111,7 +128,7 @@ header {
             display: flex;
             flex-direction: row;
             justify-content: center;
-            @media (min-width: 992px) {
+            @media (min-width: 768px) {
                 justify-content: flex-start;
             }
             & a {
@@ -258,6 +275,12 @@ header {
             aspect-ratio: 546/ 655;
             width: 100%;
             object-fit: cover;
+            @media (min-width: 768px) {
+                aspect-ratio: unset;
+            }
+            @media (min-width: 992px) {
+                aspect-ratio: 546/655;
+            }
         }
         & h5 {
             color: $army;
@@ -293,18 +316,15 @@ header {
                 }
             }
             &_left {
-                display: none;
-                @media (min-width: 992px) {
-                    display: flex;
-                }
+                display: flex;
                 position: absolute;
-                top: 70%;
                 left: 22px;
                 background: $white;
                 padding: 8px 18px;
                 flex-direction: row;
                 box-shadow: 2px -3px 10px rgba(0, 0, 0, 0.3);
                 opacity: 0.8;
+                top: 70%;
                 &:hover {
                     opacity: 1;
                 }
@@ -332,10 +352,9 @@ header {
                 align-items: center;
                 justify-content: center;
                 opacity: 0.8;
-                @media (min-width: 992px) {
+                @media (min-width: 375px) {
                     display: flex;
                 }
-
                 &:hover {
                     opacity: 1;
                 }
@@ -404,7 +423,7 @@ header {
 
 .offer {
     position: relative;
-    background: #f9f9e0;
+    background: rgba(255, 164, 71, 0.3882352941);
     padding-top: 3rem;
     padding-bottom: 3rem;
     z-index: 1;
@@ -447,8 +466,8 @@ header {
         }
     }
     &_card {
-        height: 100%;
         & .card {
+            height: 100%;
             background: rgba(255, 255, 255, 0.56);
             border-radius: 16px;
             box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -488,6 +507,14 @@ header {
                 font-family: $font;
                 font-size: 1.125rem;
                 margin-bottom: 0.5rem;
+                @media (min-width: 768px) {
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+                @media (min-width: 992px) {
+                    margin-left: unset;
+                    margin-right: unset;
+                }
             }
             & p {
                 font-size: 1rem;
@@ -570,8 +597,18 @@ header {
 }
 
 .testimonials {
-    padding-top: 6rem;
-    padding-bottom: 6rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    @media (min-width: 992px) {
+        padding-top: 6rem;
+        padding-bottom: 6rem;
+    }
+    & .the_caption {
+        margin-bottom: 1rem;
+        @media (min-width: 992px) {
+            margin-bottom: 2rem;
+        }
+    }
     &_left {
         &_image {
             position: relative;
@@ -602,6 +639,10 @@ header {
                 justify-content: flex-start;
                 display: flex;
                 flex-direction: column;
+                margin-bottom: 4rem;
+                @media (min-width: 992px) {
+                    margin-bottom: 0;
+                }
                 & img {
                     width: 84px;
                     height: 84px;
@@ -644,11 +685,8 @@ header {
                 }
             }
         }
+
         & .autoplay-progress {
-            position: absolute;
-            right: 16px;
-            bottom: 16px;
-            z-index: 10;
             width: 48px;
             height: 48px;
             display: flex;
@@ -656,6 +694,10 @@ header {
             justify-content: center;
             font-weight: bold;
             color: $primary;
+            position: absolute;
+            right: 16px;
+            bottom: 16px;
+            z-index: 10;
             & svg {
                 --progress: 0;
                 position: absolute;
@@ -674,8 +716,12 @@ header {
         }
         & .swiper-pagination-bullet {
             background: $primary;
-            width: 18px;
-            height: 18px;
+            width: 12px;
+            height: 12px;
+            @media (min-width: 992px) {
+                width: 18px;
+                height: 18px;
+            }
             box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
             &-active {
                 box-shadow: 0 -2px 10px rgba(252, 184, 12, 0.649);
@@ -685,9 +731,19 @@ header {
 }
 
 .pricing {
-    padding-top: 6rem;
-    padding-bottom: 6rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
     background: $sky;
+    @media (min-width: 992px) {
+        padding-top: 6rem;
+        padding-bottom: 6rem;
+    }
+    & .the_caption {
+        margin-bottom: 1.5rem;
+        @media (min-width: 992px) {
+            margin-bottom: 2rem;
+        }
+    }
     &_left {
         & .card {
             border: 2px solid $primary;
@@ -697,8 +753,11 @@ header {
             flex-direction: row;
             align-items: center;
             justify-content: space-between;
-            padding: 22px;
+            padding: 12px;
             box-shadow: 0 0.5rem 1rem rgba(255, 162, 1, 0.229);
+            @media (min-width: 992px) {
+                padding: 22px;
+            }
             &:hover {
                 transition: all 0.5s ease;
                 border: 2px solid $blue;
@@ -712,15 +771,20 @@ header {
             }
             & i {
                 color: $white;
-                width: 32px;
-                height: 32px;
                 margin-bottom: 0;
                 background: $primary;
-                font-size: 16px;
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 border-radius: 100%;
+                font-size: 12px;
+                width: 22px;
+                height: 22px;
+                @media (min-width: 992px) {
+                    font-size: 16px;
+                    width: 32px;
+                    height: 32px;
+                }
             }
             &_center {
                 & h4 {
@@ -728,6 +792,7 @@ header {
                     font-weight: 600;
                     margin-bottom: 0;
                     font-family: $font;
+                    font-size: 1.125rem;
                 }
                 & .badge {
                     background: $primary;
@@ -742,14 +807,20 @@ header {
             }
             &_right {
                 & h3 {
-                    font-size: 2rem;
+                    font-size: 1.25rem;
                     color: $dark;
                     display: flex;
                     flex-direction: row;
+                    @media (min-width: 992px) {
+                        font-size: 2rem;
+                    }
                     & span {
                         margin-top: 14px;
-                        font-size: 1.5rem;
+                        font-size: 1.125rem;
                         opacity: 0.8;
+                        @media (min-width: 992px) {
+                            font-size: 1.25rem;
+                        }
                     }
                 }
             }
@@ -766,6 +837,10 @@ header {
         }
     }
     &_right {
+        margin-top: 3rem;
+        @media (min-width: 768px) {
+            margin-top: 0;
+        }
         & .nav {
             justify-content: center;
             align-items: center;
@@ -789,15 +864,20 @@ header {
             }
         }
         & .tab-content {
-            margin-top: 3rem;
-            padding: 32px;
+            @media (min-width: 992px) {
+                margin-top: 3rem;
+            }
+            margin-top: 1.5rem;
             background: $like-gold;
+            padding: 22px;
+            @media (min-width: 992px) {
+                padding: 32px;
+            }
             & ul {
                 list-style-type: none;
                 padding-left: 0;
                 & li {
                     font-weight: 400;
-                    font-size: 1.125rem;
                     font-family: $font;
                     color: $dark;
                     margin-bottom: 1rem;
@@ -805,10 +885,17 @@ header {
                     flex-direction: row;
                     justify-content: space-between;
                     align-items: center;
+                    font-size: 0.875rem;
+                    @media (min-width: 992px) {
+                        font-size: 1.125rem;
+                    }
                     & i {
-                        font-size: 32px;
                         color: $dark;
                         opacity: 0.5;
+                        font-size: 28px;
+                        @media (min-width: 992px) {
+                            font-size: 32px;
+                        }
                         &.fa-circle-check {
                             opacity: 1;
                             color: $primary;
@@ -821,9 +908,13 @@ header {
 }
 
 .team {
-    padding-top: 6rem;
-    padding-bottom: 6rem;
     background: #fff;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    @media (min-width: 992px) {
+        padding-top: 6rem;
+        padding-bottom: 6rem;
+    }
     &_card {
         height: 100%;
         box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
@@ -851,19 +942,21 @@ header {
                 font-weight: 600;
                 font-family: $font;
             }
-            &:hover {
-                transition: all 0.5s ease;
-                & .team_card_social {
-                    display: flex;
+            @media (min-width: 992px) {
+                &:hover {
+                    transition: all 0.5s ease;
+                    & .team_card_social {
+                        display: flex;
+                    }
                 }
             }
             & .team_card_social {
-                display: none;
+                display: flex;
                 position: absolute;
                 left: 0;
-                top: 0;
+                bottom: 0;
                 width: 100%;
-                height: 100%;
+                height: 42px;
                 flex-direction: row;
                 padding: 12px;
                 justify-content: space-between;
@@ -871,10 +964,21 @@ header {
                 background: rgba(255, 255, 255, 0.65);
                 backdrop-filter: blur(11.5px);
                 -webkit-backdrop-filter: blur(11.5px);
+                @media (min-width: 992px) {
+                    display: none;
+                    top: 0;
+                    height: 100%;
+                }
                 & a {
-                    font-size: 1.75rem;
                     color: #39a7ff;
                     text-decoration: none;
+                    font-size: 1.5rem;
+                    @media (min-width: 768px) {
+                        font-size: 1.25rem;
+                    }
+                    @media (min-width: 992px) {
+                        font-size: 1.75rem;
+                    }
                     &:hover {
                         color: $army;
                     }
@@ -896,9 +1000,13 @@ header {
 }
 
 .contact {
-    padding-top: 6rem;
-    padding-bottom: 6rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
     background: $sky;
+    @media (min-width: 992px) {
+        padding-top: 6rem;
+        padding-bottom: 6rem;
+    }
     & h5 {
         color: $dark;
         font-weight: 500;
@@ -910,7 +1018,10 @@ header {
         font-family: $font;
         font-weight: 400;
         font-size: 1rem;
-        margin-bottom: 2rem;
+        margin-bottom: 1.5rem;
+        @media (min-width: 992px) {
+            margin-bottom: 2rem;
+        }
     }
     & a {
         color: $primary;
@@ -941,6 +1052,10 @@ header {
         }
     }
     & form {
+        margin-top: 1.5rem;
+        @media (min-width: 992px) {
+            margin-top: 0;
+        }
         & input {
             border-radius: 0;
             font-family: $font;
@@ -1042,6 +1157,7 @@ footer {
         font-weight: 400;
         max-width: 600px;
         text-align: center;
+        margin-bottom: 0;
     }
 }
 .btn_outline_primary {
